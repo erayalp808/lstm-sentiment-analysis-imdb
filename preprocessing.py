@@ -71,4 +71,4 @@ def get_data_loaders():
     train_loader = DataLoader(train_dataset, batch_size=BATCH_SIZE, shuffle=True)
     test_loader = DataLoader(test_dataset, batch_size=BATCH_SIZE)
 
-    return train_loader, test_loader, vocab
+    return train_loader, test_loader, vocab, sequence_max_length

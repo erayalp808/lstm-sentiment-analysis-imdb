@@ -3,7 +3,7 @@ from sentiment_rnn import SentimentRNN
 from preprocessing import get_data_loaders
 from config import *
 
-_, test_loader, vocab = get_data_loaders()
+_, test_loader, vocab, _ = get_data_loaders()
 model = SentimentRNN(len(vocab), EMBEDDING_DIM, HIDDEN_DIM, NUM_LAYERS, OUTPUT_DIM, DROPOUT).to(DEVICE)
 model.load_state_dict(torch.load(MODEL_PATH))
 model.eval()

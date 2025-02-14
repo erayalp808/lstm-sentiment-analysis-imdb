@@ -6,7 +6,7 @@ from preprocessing import get_data_loaders
 from config import *
 
 # Load data
-train_loader, test_loader, vocab = get_data_loaders()
+train_loader, test_loader, vocab, _ = get_data_loaders()
 
 # Initialize model
 model = SentimentRNN(len(vocab), EMBEDDING_DIM, HIDDEN_DIM, NUM_LAYERS, OUTPUT_DIM, DROPOUT).to(DEVICE)
