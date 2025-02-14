@@ -1,8 +1,8 @@
 import torch
 
 # Paths
-DATA_PATH = "imdb_reviews.csv"
-MODEL_PATH = "sentiment_model.pth"
+DATA_PATH = "data/imdb_reviews.csv"
+MODEL_PATH = "models/sentiment_model.pth"
 
 # Training settings
 BATCH_SIZE = 64

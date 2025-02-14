@@ -1,19 +1,17 @@
 import torch
 import torch.optim as optim
 import torch.nn as nn
-from sentiment_rnn import SentimentRNN
+from models.sentiment_rnn import SentimentRNN
 from preprocessing import get_data_loaders
 from config import *
+import os
 
-# Load data
 train_loader, test_loader, vocab, _ = get_data_loaders()
 
-# Initialize model
 model = SentimentRNN(len(vocab), EMBEDDING_DIM, HIDDEN_DIM, NUM_LAYERS, OUTPUT_DIM, DROPOUT).to(DEVICE)
 criterion = nn.BCEWithLogitsLoss()
 optimizer = optim.Adam(model.parameters(), lr=LEARNING_RATE)
 
-# Training loop
 for epoch in range(N_EPOCHS):
     print(f"\nEpoch {epoch + 1}/{N_EPOCHS}")
     model.train()
@@ -34,6 +32,6 @@ for epoch in range(N_EPOCHS):
 
     print(f"Loss: {epoch_loss / len(train_loader):.4f}, Accuracy: {epoch_acc / len(train_loader) * 100:.2f}%")
 
-# Save model
+os.makedirs(os.path.dirname(MODEL_PATH), exist_ok=True)
 torch.save(model.state_dict(), MODEL_PATH)
 print("Model saved successfully!")

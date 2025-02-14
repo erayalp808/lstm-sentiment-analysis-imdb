@@ -1,5 +1,5 @@
 import torch
-from sentiment_rnn import SentimentRNN
+from models.sentiment_rnn import SentimentRNN
 from preprocessing import get_data_loaders
 from config import *
 
@@ -8,7 +8,6 @@ model = SentimentRNN(len(vocab), EMBEDDING_DIM, HIDDEN_DIM, NUM_LAYERS, OUTPUT_D
 model.load_state_dict(torch.load(MODEL_PATH))
 model.eval()
 
-# Evaluation loop
 test_acc = 0
 with torch.no_grad():
     for reviews, labels in test_loader:

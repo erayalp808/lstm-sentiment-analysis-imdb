@@ -3,7 +3,7 @@ import pandas as pd
 import os
 import torch
 import torch.nn as nn
-from sentiment_rnn import SentimentRNN
+from models.sentiment_rnn import SentimentRNN
 from preprocessing import get_data_loaders, text_to_sequence
 from config import *
 
@@ -29,13 +29,6 @@ def predict(sample) -> str:
         prediction = torch.sigmoid(output).item()
 
     return "positive" if prediction > 0.5 else "negative"
-
-"""
-# this is a pseudo test function to give an idea, you can delete it if you want
-def test_model(test_sample: str, label: str) -> None:
-    result = predict(test_sample)
-    return result == label
-"""
 
 if __name__ == "__main__":
     sample_review = "This movie was absolutely fantastic! I loved every moment."
