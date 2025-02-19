@@ -1,7 +1,7 @@
 import torch
 
 # Paths
-DATA_PATH = "data/imdb_reviews.csv"
+DATA_PATH = "Q-b1t/IMDB-Dataset-of-50K-Movie-Reviews-Backup"
 MODEL_PATH = "models/sentiment_model.pth"
 
 # Training settings

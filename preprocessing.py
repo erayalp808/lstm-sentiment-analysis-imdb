@@ -3,6 +3,7 @@ import numpy as np
 import torch
 from collections import Counter
 from transformers import AutoTokenizer
+from datasets import load_dataset
 from torch.utils.data import Dataset, DataLoader
 from sklearn.model_selection import train_test_split
 from config import DATA_PATH, BATCH_SIZE
@@ -13,7 +14,8 @@ def tokenize(text):
     return tokenizer.tokenize(text)
 
 def load_data():
-    imdb_data = pd.read_csv(DATA_PATH)
+    dataset = load_dataset(DATA_PATH)
+    imdb_data = pd.DataFrame(dataset['train'])
     imdb_data['numeric_sentiment'] = imdb_data['sentiment'].apply(lambda x: 1 if x.strip().lower() == "positive" else 0)
     
     train_data, test_data = train_test_split(
