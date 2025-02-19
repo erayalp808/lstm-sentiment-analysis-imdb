@@ -5,9 +5,7 @@ This project builds a sentiment analysis model using an **LSTM-based neural netw
 
 ## 📂 Project Structure
 ```
-sentiment_analysis/
-│── data/
-│   └── imdb_reviews.csv        # Dataset
+lstm-sentiment-analysis-imdb/
 │── models/
 │   └── sentiment_rnn.py         # LSTM model definition
 │── preprocessing.py             # Tokenization & dataset preparation
@@ -93,7 +91,7 @@ print(predict(sample_review))  # Output: "positive"
 ## ⚙️ Configuration
 Hyperparameters and file paths are stored in `config.py`:
 ```python
-DATA_PATH = "data/imdb_reviews.csv"
+DATA_PATH = "Q-b1t/IMDB-Dataset-of-50K-Movie-Reviews-Backup"
 MODEL_PATH = "models/sentiment_model.pth"
 BATCH_SIZE = 64
 N_EPOCHS = 5
