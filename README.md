@@ -29,8 +29,7 @@ cd rnn-sentiment-analysis-imdb
 ### **2️⃣ Create a Virtual Environment**
 ```bash
 python -m venv venv
-source venv/bin/activate  # On Mac/Linux
-venv\Scripts\activate     # On Windows
+source venv/bin/activate
 ```
 
 ### **3️⃣ Install Dependencies**
